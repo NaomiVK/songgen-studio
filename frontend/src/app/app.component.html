@@ -1,0 +1,36 @@
+<mat-sidenav-container class="app-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <mat-toolbar color="primary">
+      <span>SongGen Studio</span>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/builder" routerLinkActive="active">
+        <mat-icon matListItemIcon>music_note</mat-icon>
+        <span matListItemTitle>Song Builder</span>
+      </a>
+      <a mat-list-item routerLink="/library" routerLinkActive="active">
+        <mat-icon matListItemIcon>library_music</mat-icon>
+        <span matListItemTitle>Library</span>
+      </a>
+      <a mat-list-item routerLink="/setup" routerLinkActive="active">
+        <mat-icon matListItemIcon>settings</mat-icon>
+        <span matListItemTitle>Setup</span>
+      </a>
+    </mat-nav-list>
+
+    @if (showSetupWarning) {
+      <div class="setup-warning">
+        <mat-icon>warning</mat-icon>
+        <span>Model not installed</span>
+        <a routerLink="/setup">Set up</a>
+      </div>
+    }
+  </mat-sidenav>
+
+  <mat-sidenav-content class="main-content">
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<app-audio-player />
